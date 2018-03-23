@@ -14,9 +14,8 @@ In this notebook we calculate the surface velocity from the llc4320 model output
 
 
 The total momentum equation can be written as:
-![Eqn 1](http://latex.codecogs.com/gif.latex?%24%24%20%5Cfrac%7B%5Cpartial%20%5Cmathbf%7Bu%7D%7D%7B%5Cpartial%20t%7D%20&plus;%20%5Cmathbf%7Bu%7D%20%5Ccdot%20%5Cnabla%20%5Cmathbf%7Bu%7D%20&plus;%20f%20%5Ctimes%20%5Cmathbf%7Bu%7D%20%3D%20-g%20%5Cnabla%20%5Ceta%20&plus;%20%5Cmathbf%7BF%7D%24%24)
 
-$$ \frac{\partial \mathbf{u}}{\partial t} + \mathbf{u} \cdot \nabla \mathbf{u} + f \times \mathbf{u} = -g \nabla \eta + \mathbf{F}$$
+![Eqn 1](http://latex.codecogs.com/gif.latex?%24%24%20%5Cfrac%7B%5Cpartial%20%5Cmathbf%7Bu%7D%7D%7B%5Cpartial%20t%7D%20&plus;%20%5Cmathbf%7Bu%7D%20%5Ccdot%20%5Cnabla%20%5Cmathbf%7Bu%7D%20&plus;%20f%20%5Ctimes%20%5Cmathbf%7Bu%7D%20%3D%20-g%20%5Cnabla%20%5Ceta%20&plus;%20%5Cmathbf%7BF%7D%24%24)
 
 where $\mathbf{F}$ is the frictional term
 
@@ -24,13 +23,12 @@ Our traditional method involves splitting the surface flow into a geostrophic an
 
 ![Eqn 2](http://latex.codecogs.com/gif.latex?%24%24%5Cmathbf%7Bu%7D%20%3D%20%5Cmathbf%7Bu_g%7D%20&plus;%20%5Cmathbf%7Bu_a%7D%24%24)
 
-$$\mathbf{u} = \mathbf{u_g} + \mathbf{u_a}$$
-
 where the force balances are 
 
-http://latex.codecogs.com/gif.latex?%24%24%20f%20%5Ctimes%20%5Cmathbf%7Bu_g%7D%20%3D%20-g%20%5Cnabla%20%5Ceta%24%24
-$$ f \times \mathbf{u_g} = -g \nabla \eta$$
+![Eqn 2](http://latex.codecogs.com/gif.latex?%24%24%20f%20%5Ctimes%20%5Cmathbf%7Bu_g%7D%20%3D%20-g%20%5Cnabla%20%5Ceta%24%24)
+
 and
+ ![](http://latex.codecogs.com/gif.latex?%24%24%20f%20%5Ctimes%20%5Cmathbf%7Bu_a%7D%20%3D%20F%24%24)
 $$ f \times \mathbf{u_a} = F$$
 
 # Geostrophic velocities

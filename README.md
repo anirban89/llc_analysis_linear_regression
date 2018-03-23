@@ -1,14 +1,14 @@
 # LINEAR REGRESSION llc velocities
 
-# llc velocity analysis#
+# llc velocity analysis
 
-## The Aim##
+## The Aim
 The aim is to train a deep neural net to infer velocities from the Sea surface heights ($\eta$) and Wind stress($\tau_x$ and $\tau_y$). The training dataset will be the high resolution model, We will then coarsegrain the model fields to get the lower resolution fields and use that as the testing data. The ultimate aim will be to get the velocity fields for Satellite altimetry. 
 
 The hypothesis to be tested is the following:
 Can we train a Conv Neural Net to give velocity estimates from altimetry data to get a better signture of small scale (balanced/unbalanced motions) than geostrophy?
 
-## The present work##
+## The present work
 
 In this notebook we calculate the surface velocity from the llc4320 model output in the Agulhas sector and write down the formalism for calculating the surface geostrophic velocities from the SSH ($\eta$) and the surface Ekman velocities from wind stress and the formalism for calculating the error.
 
@@ -29,7 +29,7 @@ $$ f \times \mathbf{u_g} = -g \nabla \eta$$
 and
 $$ f \times \mathbf{u_a} = F$$
 
-# Geostrophic velocities#
+# Geostrophic velocities
 
 Geostrophic velocities are given by 
 
@@ -39,7 +39,7 @@ $$fu_{g} = - g \frac{\partial \eta}{\partial y} $$
 
 
 
-# Ekman velocity #
+# Ekman velocity 
 
 
 Under steady state conditions is can be shown that in the boundary layer of the upper ocean (order hundred meters) horizontal gradients are small compared to vertical gradients. Under these conditions, there is a balance between Coriolis and Friction.
@@ -109,7 +109,7 @@ $$ \mathbf{u} = \alpha_{+} e^{[-1+i] z/d} + \alpha_{-} e^{-[-1+i] z/d} $$
 
 Here now the $\alpha_{-}$ part is the solution for the surface Ekman flow.
 
-### Northern Hemisphere ###
+### Northern Hemisphere 
 To solve for $\alpha_{+}$, plug in $\mathbf{u}$ in the equation 
 
 $$ \mathbf{\tau} = \rho A_z \frac{\partial \mathbf{u}}{\partial z} $$
@@ -129,7 +129,7 @@ $$ \implies v_{e} = \frac{1}{\rho \sqrt{2 A_z |f|}} (-\tau_x + \tau_y)$$
 
 
 
-### Southern Hemisphere ###
+### Southern Hemisphere 
 
 Doing the similar procedure in the Southern Hemisphere we get
 
@@ -144,7 +144,7 @@ $$ \implies u_{e} = \frac{1}{\rho \sqrt{2 A_z |f|}} (\tau_x - \tau_y)$$
 $$ \implies v_{e} = \frac{1}{\rho \sqrt{2 A_z |f|}} (\tau_x + \tau_y)$$
  
 
-# Linear Regression #
+# Linear Regression 
 
 For the first exercise, we aim to fit a multiple linear regression. For our black box therefore the input variables are $\left[x_{i1}, ... , x_{ip}\right]_{i=1}^{n}$, n being the number of samples, and p being the number of features. We can represent the linear regression problem as $u_i = \beta_0 1 + \beta_1 x_{i1} + ... + \beta_p x_{ip} + \epsilon_i$.
 
@@ -261,7 +261,7 @@ $$
 \beta_9 \cdot \underbrace{[\frac{1}{dy}_{x,y}]}_{x_9}
 $$
 
-# Our insight #
+# Our insight 
 
 Based on our null hypothesis that 
 $$ \mathbf{u} = \mathbf{u_g} + \mathbf{u_{ek}}$$

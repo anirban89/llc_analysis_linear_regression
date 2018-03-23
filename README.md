@@ -29,7 +29,6 @@ where the force balances are
 
 and
  ![](http://latex.codecogs.com/gif.latex?%24%24%20f%20%5Ctimes%20%5Cmathbf%7Bu_a%7D%20%3D%20F%24%24)
-$$ f \times \mathbf{u_a} = F$$
 
 # Geostrophic velocities
 
@@ -225,43 +224,16 @@ $$
 $$
 
 Our linear regression problem is therefore 
-$$
-\underbrace{\begin{bmatrix}
-    u_1 & v_1\\
-    u_2 & v_2\\
-    .. \\
-    u_n & v_n
-  \end{bmatrix}}_{u = [n (samples) \times 2]} =
-  \underbrace{\begin{bmatrix}
-    1 & x_{11} & x_{12} ...  & x_{19} \\
-    1 & x_{21} & x_{22} ...  & x_{29} \\
-    .. & ..  & .... &...\\
-    1 & x_{n1} & x_{n2} ...  & x_{n9}
-  \end{bmatrix}}_{X = \left[n (samples) \times [9(features)+1]\right]} 
-  \cdot
-  \underbrace{\begin{bmatrix}
-        \beta_{0r} & \beta_{0i}\\
-        \beta_{1r} & \beta_{1i}\\
-        .. \\
-        \beta_{9r} & \beta_{9i}
-  \end{bmatrix}}_{\beta = \left[[9(coefficients)+1(intercept)] \times 2\right]}
-$$
+
+![](http://latex.codecogs.com/gif.latex?%24%24%20%5Cunderbrace%7B%5Cbegin%7Bbmatrix%7D%20u_1%20%26%20v_1%5C%5C%20u_2%20%26%20v_2%5C%5C%20..%20%5C%5C%20u_n%20%26%20v_n%20%5Cend%7Bbmatrix%7D%7D_%7Bu%20%3D%20%5Bn%20%28samples%29%20%5Ctimes%202%5D%7D%20%3D%20%5Cunderbrace%7B%5Cbegin%7Bbmatrix%7D%201%20%26%20x_%7B11%7D%20%26%20x_%7B12%7D%20...%20%26%20x_%7B19%7D%20%5C%5C%201%20%26%20x_%7B21%7D%20%26%20x_%7B22%7D%20...%20%26%20x_%7B29%7D%20%5C%5C%20..%20%26%20..%20%26%20....%20%26...%5C%5C%201%20%26%20x_%7Bn1%7D%20%26%20x_%7Bn2%7D%20...%20%26%20x_%7Bn9%7D%20%5Cend%7Bbmatrix%7D%7D_%7BX%20%3D%20%5Cleft%5Bn%20%28samples%29%20%5Ctimes%20%5B9%28features%29&plus;1%5D%5Cright%5D%7D%20%5Ccdot%20%5Cunderbrace%7B%5Cbegin%7Bbmatrix%7D%20%5Cbeta_%7B0r%7D%20%26%20%5Cbeta_%7B0i%7D%5C%5C%20%5Cbeta_%7B1r%7D%20%26%20%5Cbeta_%7B1i%7D%5C%5C%20..%20%5C%5C%20%5Cbeta_%7B9r%7D%20%26%20%5Cbeta_%7B9i%7D%20%5Cend%7Bbmatrix%7D%7D_%7B%5Cbeta%20%3D%20%5Cleft%5B%5B9%28coefficients%29&plus;1%28intercept%29%5D%20%5Ctimes%202%5Cright%5D%7D%20%24%24)
+
 
 here $[\beta_1, ..., \beta_9]$ are the coefficients and $\beta_0$ is the intercept.
 
 or 
 
-$$
-\mathbf{u} = \beta_0 + \beta_1 \cdot \underbrace{[f_{x,y}]}_{x_1} + 
-\beta_2 \cdot \underbrace{[\tau^x_{x,y}]}_{x_2} + 
-\beta_3 \cdot \underbrace{[\tau^y_{x,y}]}_{x_3} +
-\beta_4 \cdot \underbrace{[\eta_{x+,y}]}_{x_4} + 
-\beta_5 \cdot \underbrace{[\eta_{x-,y}]}_{x_5} + 
-\beta_6 \cdot \underbrace{[\eta_{x,y+}]}_{x_6}  + 
-\beta_7 \cdot \underbrace{[\eta_{x,y-}]}_{x_7}  + 
-\beta_8 \cdot \underbrace{[\frac{1}{dx}_{x,y}]}_{x_8} + 
-\beta_9 \cdot \underbrace{[\frac{1}{dy}_{x,y}]}_{x_9}
-$$
+![](http://latex.codecogs.com/gif.latex?%5Cinline%20%24%24%20%5Cmathbf%7Bu%7D%20%3D%20%5Cbeta_0%20&plus;%20%5Cbeta_1%20%5Ccdot%20%5Cunderbrace%7B%5Bf_%7Bx%2Cy%7D%5D%7D_%7Bx_1%7D%20&plus;%20%5Cbeta_2%20%5Ccdot%20%5Cunderbrace%7B%5B%5Ctau%5Ex_%7Bx%2Cy%7D%5D%7D_%7Bx_2%7D%20&plus;%20%5Cbeta_3%20%5Ccdot%20%5Cunderbrace%7B%5B%5Ctau%5Ey_%7Bx%2Cy%7D%5D%7D_%7Bx_3%7D%20&plus;%20%5Cbeta_4%20%5Ccdot%20%5Cunderbrace%7B%5B%5Ceta_%7Bx&plus;%2Cy%7D%5D%7D_%7Bx_4%7D%20&plus;%20%5Cbeta_5%20%5Ccdot%20%5Cunderbrace%7B%5B%5Ceta_%7Bx-%2Cy%7D%5D%7D_%7Bx_5%7D%20&plus;%20%5Cbeta_6%20%5Ccdot%20%5Cunderbrace%7B%5B%5Ceta_%7Bx%2Cy&plus;%7D%5D%7D_%7Bx_6%7D%20&plus;%20%5Cbeta_7%20%5Ccdot%20%5Cunderbrace%7B%5B%5Ceta_%7Bx%2Cy-%7D%5D%7D_%7Bx_7%7D%20&plus;%20%5Cbeta_8%20%5Ccdot%20%5Cunderbrace%7B%5B%5Cfrac%7B1%7D%7Bdx%7D_%7Bx%2Cy%7D%5D%7D_%7Bx_8%7D%20&plus;%20%5Cbeta_9%20%5Ccdot%20%5Cunderbrace%7B%5B%5Cfrac%7B1%7D%7Bdy%7D_%7Bx%2Cy%7D%5D%7D_%7Bx_9%7D%20%24%24)
+
 
 # Our insight 
 
@@ -307,37 +279,13 @@ $$
 
 The new linear regression problem now becomes
 
-$$\mathbf{u} = 
-\theta_0 + \theta_1 \underbrace{(x_1^{-1}x_6 x_9)}_{y_1} + 
-\theta_2 \underbrace{(x_1^{-1} x_7 x_9)}_{y_2} + 
-\theta_3 \underbrace{(x_1^{-1}x_4 x_8)}_{y_3} + 
-\theta_4 \underbrace{(x_1^{-1} x_5 x_8)}_{y_4} +
-\theta_5 \underbrace{(x_1^{-1/2} x_2)}_{y_5} + 
-\theta_6 \underbrace{(x_1^{-1/2} x_3)}_{y_6}
-$$
+![](http://latex.codecogs.com/gif.latex?%5Cinline%20%24%24%5Cmathbf%7Bu%7D%20%3D%20%5Ctheta_0%20&plus;%20%5Ctheta_1%20%5Cunderbrace%7B%28x_1%5E%7B-1%7Dx_6%20x_9%29%7D_%7By_1%7D%20&plus;%20%5Ctheta_2%20%5Cunderbrace%7B%28x_1%5E%7B-1%7D%20x_7%20x_9%29%7D_%7By_2%7D%20&plus;%20%5Ctheta_3%20%5Cunderbrace%7B%28x_1%5E%7B-1%7Dx_4%20x_8%29%7D_%7By_3%7D%20&plus;%20%5Ctheta_4%20%5Cunderbrace%7B%28x_1%5E%7B-1%7D%20x_5%20x_8%29%7D_%7By_4%7D%20&plus;%20%5Ctheta_5%20%5Cunderbrace%7B%28x_1%5E%7B-1/2%7D%20x_2%29%7D_%7By_5%7D%20&plus;%20%5Ctheta_6%20%5Cunderbrace%7B%28x_1%5E%7B-1/2%7D%20x_3%29%7D_%7By_6%7D%20%24%24)
+
 
 Or we can write in vector form as
 
-$$
-\underbrace{\begin{bmatrix}
-    u_1 & v_1\\
-    u_2 & v_2\\
-    .. \\
-    u_n & v_n
-  \end{bmatrix}}_{u = [n (samples) \times 2]} =
-  \underbrace{\begin{bmatrix}
-    1 & y_{11} & y_{12} ...  & y_{16} \\
-    1 & y_{21} & y_{22} ...  & y_{26} \\
-    .. & ..  & .... &...\\
-    1 & y_{n1} & y_{n2} ...  & y_{n6}
-  \end{bmatrix}}_{Y = \left[n (samples) \times [6(features)+1]\right]} 
-  \cdot
-  \underbrace{\begin{bmatrix}
-        \theta_{0r} & \theta_{0i}\\
-        \theta_{1r} & \theta_{1i}\\
-        .. \\
-        \theta_{6r} & \theta_{6i}
-  \end{bmatrix}}_{\beta = \left[[6(coefficients)+1(intercept)] \times 2\right]}
-$$
+![](http://latex.codecogs.com/gif.latex?%5Cinline%20%24%24%20%5Cunderbrace%7B%5Cbegin%7Bbmatrix%7D%20u_1%20%26%20v_1%5C%5C%20u_2%20%26%20v_2%5C%5C%20..%20%5C%5C%20u_n%20%26%20v_n%20%5Cend%7Bbmatrix%7D%7D_%7Bu%20%3D%20%5Bn%20%28samples%29%20%5Ctimes%202%5D%7D%20%3D%20%5Cunderbrace%7B%5Cbegin%7Bbmatrix%7D%201%20%26%20y_%7B11%7D%20%26%20y_%7B12%7D%20...%20%26%20y_%7B16%7D%20%5C%5C%201%20%26%20y_%7B21%7D%20%26%20y_%7B22%7D%20...%20%26%20y_%7B26%7D%20%5C%5C%20..%20%26%20..%20%26%20....%20%26...%5C%5C%201%20%26%20y_%7Bn1%7D%20%26%20y_%7Bn2%7D%20...%20%26%20y_%7Bn6%7D%20%5Cend%7Bbmatrix%7D%7D_%7BY%20%3D%20%5Cleft%5Bn%20%28samples%29%20%5Ctimes%20%5B6%28features%29&plus;1%5D%5Cright%5D%7D%20%5Ccdot%20%5Cunderbrace%7B%5Cbegin%7Bbmatrix%7D%20%5Ctheta_%7B0r%7D%20%26%20%5Ctheta_%7B0i%7D%5C%5C%20%5Ctheta_%7B1r%7D%20%26%20%5Ctheta_%7B1i%7D%5C%5C%20..%20%5C%5C%20%5Ctheta_%7B6r%7D%20%26%20%5Ctheta_%7B6i%7D%20%5Cend%7Bbmatrix%7D%7D_%7B%5Cbeta%20%3D%20%5Cleft%5B%5B6%28coefficients%29&plus;1%28intercept%29%5D%20%5Ctimes%202%5Cright%5D%7D%20%24%24)
+
+
 
 
